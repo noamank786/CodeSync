@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Code Sync - Editor</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- ========================== -->
+  <!-- JOIN ROOM SCREEN          -->
+  <!-- ========================== -->
+  <div class="homePageWrapper" id="homePage">
+    <div class="formWrapper">
+      <img class="homePageLogo" src="code-sync.png" alt="Code Sync Logo" />
+      <h4 class="mainLabel">Join a collaborative room</h4>
+
+      <div class="inputGroup">
+        <input id="roomIdInput" class="inputBox" placeholder="Room ID" />
+        <input id="usernameInput" class="inputBox" placeholder="Username" />
+        <button id="joinBtn" class="btn joinBtn">Join</button>
+
+        <span class="createInfo">
+          No invite? Create a <a id="createNewBtn" class="createNewBtn">new room</a>
+        </span>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ========================== -->
+  <!-- MAIN EDITOR LAYOUT        -->
+  <!-- ========================== -->
+  <div class="mainWrap" id="editorPage" style="display:none;">
+
+    <!-- Left Activity Bar -->
+    <div class="activityBar">
+      <div class="activityBar-top">
+        <img src="code-sync1.png" alt="Code Sync Logo" class="activity-logo" />
+      </div>
+
+
+      <div class="activityBar-middle">
+        <button class="activityIcon active" title="Explorer">📁</button>
+        <button class="activityIcon" title="Users">👥</button>
+        <button class="activityIcon" title="Chat">💬</button>
+      </div>
+
+      <div class="activityBar-bottom"></div>
+    </div>
+
+
+    <!-- ========================== -->
+    <!-- LEFT PANEL (FILES + USERS) -->
+    <!-- ========================== -->
+    <div class="asideWrap resizable" id="leftPanel">
+
+      <div class="asideInner">
+
+        <!-- USERS SECTION -->
+        <div id="usersSection">
+          <div class="sectionHeader">
+            <span class="sectionTitle">Collaborators</span>
+          </div>
+
+          <div class="clientsList" id="clientsList"></div>
+        </div>
+
+        <!-- FILES SECTION -->
+        <div id="filesSection">
+          <div class="sectionHeader" id="filesHeader">
+            <span class="sectionTitle">Files</span>
+            <div class="sectionActions">
+              <button id="newFileBtn" class="btn iconBtn" title="New File">➕</button>
+            </div>
+          </div>
+
+          <div id="fileTabs" class="file-tabs"></div>
+        </div>
+
+      </div>
+
+      <button id="leaveBtn" class="btn leaveBtn">Leave room</button>
+    </div>
+
+    <div class="divider" id="dividerLeft"></div>
+
+
+    <!-- ========================== -->
+    <!-- EDITOR PANEL               -->
+    <!-- ========================== -->
+    <div class="editorWrap resizable" id="editorPanel">
+
+      <!-- Top Tools Bar -->
+      <div class="topBar">
+        <div class="langSelectRow">
+          <select id="languageSelect">
+            <option value="python3">Python</option>
+            <option value="cpp">C++</option>
+            <option value="java">Java</option>
+            <option value="javascript">JavaScript</option>
+            <option value="html">HTML</option>
+            <option value="css">CSS</option>
+          </select>
+        </div>
+
+        <div class="topBar-actions">
+          <button class="btn ghostBtn" id="saveBtn">💾</button>
+          <button class="btn ghostBtn" id="saveServerBtn">☁️</button>
+          <button class="btn ghostBtn dangerGhost" id="deleteFileBtn">🗑️</button>
+          <button class="btn primaryBtn" id="runBtn">Run / Preview</button>
+        </div>
+      </div>
+
+      <!-- Monaco Editor -->
+      <div id="editorContainer" class="editorContainer"></div>
+
+      <!-- Terminal / Output area -->
+      <div class="panelWrap">
+
+        <div class="panelHeader">
+          <div class="panelTabs">
+            <button class="panelTab active">Terminal</button>
+          </div>
+          <div class="panelMeta">
+            <span id="runStatus" class="panelStatus">Idle</span>
+          </div>
+        </div>
+
+        <div class="panelContent">
+          <textarea id="inputArea" class="inputArea textarea-style" placeholder="Standard input (stdin)…"></textarea>
+          <textarea id="outputArea" class="outputArea textarea-style" placeholder="Program output…" readonly></textarea>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="divider" id="dividerRight"></div>
+
+
+    <!-- ========================== -->
+    <!-- CHAT PANEL (collapsible)  -->
+    <!-- ========================== -->
+    <div class="chatWrap resizable" id="chatPanel">
+      <div class="chatHeader">
+        <span class="sectionTitle">Room Chat</span>
+      </div>
+
+      <div id="chatArea" class="chatArea textarea-style"></div>
+
+      <div class="sendChatWrap">
+        <input id="chatInput" class="inputBox chatInput" placeholder="Type a message…" />
+        <button id="sendBtn" class="btn sendBtn">Send</button>
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- ========================== -->
+  <!-- JS FILES                  -->
+  <!-- ========================== -->
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.36.1/min/vs/loader.min.js"></script>
+
+  <!-- SINGLE SCRIPT ENTRY POINT -->
+  <script type="module" src="client.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Code Sync - Home</title>
+  <link rel="stylesheet" href="landing.css" />
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="header-left">
+      <img src="code-sync.png" alt="Code Sync" class="logo-mark" />
+    </div>
+
+
+
+    <nav>
+      <a href="#home">Home</a>
+      <a href="app.html">Join Room</a>
+      <a href="#features">Features</a>
+      <a href="#about">About</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <p class="hero-tagline">Realtime · Familiar · In the browser</p>
+        <h2>Collaborate like VS Code. Together, live.</h2>
+        <p>A real-time collaborative code editor with syntax highlighting, chat, and soon a built-in terminal.</p>
+        <div class="hero-actions">
+          <button class="btn primary" onclick="location.href='app.html'">Join a Room</button>
+          <button class="btn ghost" onclick="document.getElementById('features').scrollIntoView({behavior:'smooth'})">
+            See features
+          </button>
+        </div>
+      </div>
+      <div class="hero-preview">
+        <div class="hero-editor-chrome">
+          <div class="hero-editor-header">
+            <span class="dot red"></span>
+            <span class="dot amber"></span>
+            <span class="dot green"></span>
+            <span class="hero-editor-title">room-1234 • Code Sync</span>
+          </div>
+          <div class="hero-editor-body">
+            <div class="hero-editor-sidebar"></div>
+            <div class="hero-editor-main">
+              <div class="hero-editor-tab active">main.py</div>
+              <pre>
+<span class="kw">def</span> <span class="fn">hello</span>():
+    <span class="kw">return</span> <span class="str">"Hello from Code Sync"</span>
+              </pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features" id="features">
+    <div class="feature">
+      <h3>Monaco Editor</h3>
+      <p>Modern, VS Code–style editor with syntax highlighting and familiar keybindings.</p>
+    </div>
+    <div class="feature">
+      <h3>Real-time Collaboration</h3>
+      <p>Multiple users edit the same file with live cursors and presence.</p>
+    </div>
+    <div class="feature">
+      <h3>Built-in Chat</h3>
+      <p>Discuss ideas without leaving the editor. Chat is tied to each room.</p>
+    </div>
+    <div class="feature">
+      <h3>Room-based Access</h3>
+      <p>Securely collaborate with unique room IDs for each session.</p>
+    </div>
+  </section>
+
+  <!-- Steps Section -->
+  <section class="steps">
+    <h2>How It Works</h2>
+    <p>1. Click "Join a Room" to go to the application page.</p>
+    <p>2. Enter a room ID and username, or create a new room.</p>
+    <p>3. Start collaborative coding with live updates and chat.</p>
+  </section>
+
+  <!-- About Section -->
+  <section class="about" id="about">
+    <h2>About Code Sync</h2>
+    <p>Code Sync is built to feel like a familiar editor while adding multiplayer powers for remote teams and students.
+    </p>
+    <h3>Technologies Used:</h3>
+    <ul>
+      <li>Frontend: HTML, CSS, JavaScript, Monaco Editor</li>
+      <li>Backend: WebSockets, real-time collaboration server</li>
+      <li>Realtime Communication: Socket-based messaging</li>
+    </ul>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Code Sync</p>
+    <p><a href="#" class="footer-link">GitHub</a></p>
+  </footer>
+
+</body>
+
+</html>
